@@ -83,27 +83,6 @@ class ConfigController extends AbstractController
     public function checkConfig(Request $request)
     {
         // TODO:
-        die;
-        $orderId = intval($request->get('vpc_OrderInfo'));
-
-        if ($orderId != NapasGateway::CREDIT_CHECK_ORDER_ID || $orderId != NapasGateway::DOMESTIC_CHECK_ORDER_ID) {
-            throw new NotFoundHttpException();
-        }
-
-        if ($orderId == NapasGateway::CREDIT_CHECK_ORDER_ID) {
-            $PaymentMethod = $this->container->get(LinkCreditCard::class);
-        } else {
-            $PaymentMethod = $this->container->get(LinkDomesticCard::class);
-        }
-
-        $result = $PaymentMethod->handleRequest($request);
-        if ($result['status'] === 'success') {
-            $this->session->set('eccube.front.shopping.order.id', $orderId);
-            return $this->redirectToRoute('napas_admin_config');
-        } else {
-            $this->addError($result['message'], 'admin');
-            return $this->redirectToRoute('napas_admin_config');
-        }
     }
 
     /**
