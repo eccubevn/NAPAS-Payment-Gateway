@@ -1,0 +1,46 @@
+napas.config.call_url.label: "Địa chỉ xử lý thanh toán"
+napas.config.callback_url.label: "Địa chỉ xử lý phản hồi"
+napas.config.merchant_id.label: "Tài khoản thanh toán"
+napas.config.merchant_access_code.label: "Mã truy cập"
+napas.config.secret.label: "Mã bí mật"
+napas.admin.config.title: "Cổng thanh toán Napas"
+napas.admin.config.sub_title: "Tùy chỉnh"
+napas.admin.order.title: "Thông tin thanh toán"
+napas.admin.config.title_card: Cài đặt thông tin tài khoản
+napas.admin.config.btn.trycheck: Thử kiểm tra
+
+napas.response.msg.cancel: Bạn đã hủy giao dịch thanh toán.
+napas.response.msg.failure: Giao dịch không thành công.
+napas.response.msg.0: Giao dịch thành công.
+napas.response.msg.1: Hệ thống ngân hàng từ chối (đóng thẻ, đóng tài khoản).
+napas.response.msg.3: Thẻ hết hạn.
+napas.response.msg.4: Vượt quá giới hạn (Sai ​​OTP, số lượng / thời gian mỗi ngày).
+napas.response.msg.5: Không có phản hồi Ngân hàng.
+napas.response.msg.6: Thất bại trong việc kết nối với ngân hàng.
+napas.response.msg.7: Không đủ tiền.
+napas.response.msg.8: Tổng kiểm tra không hợp lệ.
+napas.response.msg.9: Loại giao dịch không hỗ trợ.
+napas.response.msg.10: Lỗi khác.
+napas.response.msg.11: Xác nhận thẻ thành công.
+napas.response.msg.12: Thanh toán của bạn không thành công. Giao dịch vượt quá giới hạn số tiền.
+napas.response.msg.13: Thẻ của bạn đã không được đăng ký dịch vụ thanh toán trực tuyến. Vui lòng liên hệ với ngân hàng của bạn.
+napas.response.msg.14: OTP không hợp lệ (Mật khẩu sử dụng một lần).
+napas.response.msg.15: Mật khẩu không hợp lệ.
+napas.response.msg.16: Tên chủ thẻ không đúng.
+napas.response.msg.17: Số thẻ không đúng.
+napas.response.msg.18: Ngày hiệu lực không chính xác (ngày phát hành).
+napas.response.msg.19: Ngày hiệu lực không chính xác (ngày hết hạn).
+napas.response.msg.20: Giao dịch không thành công.
+napas.response.msg.21: OTP (Mật khẩu sử dụng 01 lần) hết thời gian.
+napas.response.msg.22: Giao dịch không thành công.
+napas.response.msg.23: Thanh toán của bạn không được chấp thuận. Thẻ / tài khoản của bạn không đủ điều kiện để thanh toán.
+napas.response.msg.24: Thanh toán của bạn không thành công. Giao dịch vượt quá giới hạn số tiền.
+napas.response.msg.25: Giao dịch vượt quá giới hạn số tiền.
+napas.response.msg.26: Giao dịch chờ xác nhận từ ngân hàng.
+napas.response.msg.27: Bạn đã nhập sai thông tin xác thực.
+napas.response.msg.28: Thanh toán của bạn không thành công. Giao dịch vượt quá giới hạn thời gian.
+napas.response.msg.29: Giao dịch không thành công. Vui lòng liên hệ với ngân hàng của bạn để biết thông tin.
+napas.response.msg.30: Thanh toán của bạn không thành công. Số tiền ít hơn giới hạn tối thiểu.
+napas.response.msg.31: Không tìm thấy đơn hàng.
+napas.response.msg.32: Đơn đặt hàng không thanh toán.
+napas.response.msg.33: Đơn hàng trùng lặp.

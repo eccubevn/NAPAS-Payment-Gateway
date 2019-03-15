@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var _container = $('.c-primaryCol .card.rounded').first();
+        $("#blockPaidInformation").detach().insertAfter(_container);
+    });
+</script>
+
+<div id="blockPaidInformation" class="card rounded border-0 mb-4">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-4 col-sm-3 col-md-2">
+                <div class="d-inline-block"><span class="card-title">{{ 'napas.admin.order.title'|trans }}</span></div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-8">
+                {{ payment.getMethod() }}
+            </div>
+            <div class="col-2 col-sm-3 col-md-2 text-right">
+                <a data-toggle="collapse" href="#paidInformation" aria-expanded="false" aria-controls="shippingInfo">
+                    <i class="fa fa-angle-down fa-lg"></i></a></div>
+        </div>
+    </div>
+    <div class="collapse ec-cardCollapse h-adr" id="paidInformation">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row form-group">
+                        <div class="col">
+                            {% for key, msg in paidLog %}
+                                <div class="row mb-3">
+                                    <div class="col-4 col-sm-3 col-md-2">+ {{ key|replace({'vpc_': ""}) }}</div>
+                                    <div class="col">{{ msg }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

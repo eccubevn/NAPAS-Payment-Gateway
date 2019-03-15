@@ -1,0 +1,9 @@
+{
+    "name": "Napas Payment Gateway",
+    "type": "eccube-plugin",
+    "description": "Napas Payment Gateway",
+    "version": "1.0.0",
+    "extra": {
+        "code": "Napas"
+    }
+}
