@@ -1,17 +1,13 @@
 <?php
 namespace Plugin\Napas\Controller\Admin;
 
-use Plugin\Napas\Service\Payment\Method\LinkCreditCard;
-use Plugin\Napas\Service\Payment\Method\LinkDomesticCard;
-use Plugin\Napas\Service\Payment\Method\NapasGateway;
+use Plugin\Napas\Service\Payment\NapasGateway;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Eccube\Controller\AbstractController;
 use Plugin\Napas\Repository\ConfigRepository;
 use Plugin\Napas\Form\Type\Admin\ConfigType;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ConfigController extends AbstractController
 {

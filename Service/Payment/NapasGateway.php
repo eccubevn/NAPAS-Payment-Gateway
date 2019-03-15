@@ -1,14 +1,12 @@
 <?php
 
-namespace Plugin\Napas\Service\Payment\Method;
+namespace Plugin\Napas\Service\Payment;
 
 use Eccube\Common\EccubeConfig;
-use Eccube\Entity\BaseInfo;
 use Eccube\Entity\Order;
 use Eccube\Repository\BaseInfoRepository;
 use Eccube\Repository\OrderRepository;
 use Plugin\Napas\Entity\Config;
-use Plugin\Napas\Entity\PaidLogs;
 use Plugin\Napas\Repository\PaidLogsRepository;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -162,6 +160,30 @@ class NapasGateway implements PaymentMethodInterface
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @param \Symfony\Component\Form\FormInterface $form
+     * @return $this
+     */
+    public function setFormType(\Symfony\Component\Form\FormInterface $form)
+    {
+        $this->form = $form;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @param \Eccube\Entity\Order $Order
+     * @return $this
+     */
+    public function setOrder(\Eccube\Entity\Order $Order)
+    {
+        $this->Order = $Order;
+        return $this;
+    }
+
+    /**
      * @return array
      * @throws \Exception
      */
@@ -212,28 +234,6 @@ class NapasGateway implements PaymentMethodInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @param \Symfony\Component\Form\FormInterface $form
-     * @return $this
-     */
-    public function setFormType(\Symfony\Component\Form\FormInterface $form)
-    {
-        $this->form = $form;
-        return $this;
-    }
-
-    /**
-     * @param \Eccube\Entity\Order $Order
-     * @return $this
-     */
-    public function setOrder(\Eccube\Entity\Order $Order)
-    {
-        $this->Order = $Order;
-        return $this;
-    }
-
-    /**
      * Check connect to Napas input card page
      *
      * @param Config $Config
@@ -256,7 +256,7 @@ class NapasGateway implements PaymentMethodInterface
      * @throws \Exception
      */
     public function getCallUrl(){
-        $vpcURL         = $this->NapasConfig->getCallUrl() . "?";
+        $vpcURL         = $this->NapasConfig->getCallUrl()."?";
         $SECURE_SECRET  = $this->NapasConfig->getSecret();
         $md5HashData    = $SECURE_SECRET;
         $params         = $this->getParameters();
@@ -268,17 +268,17 @@ class NapasGateway implements PaymentMethodInterface
 
                 // this ensures the first paramter of the URL is preceded by the '?' char
                 if ($appendAmp == 0) {
-                    $vpcURL .= urlencode($key) . '=' . urlencode($value);
+                    $vpcURL .= urlencode($key).'='.urlencode($value);
                     $appendAmp = 1;
                 } else {
-                    $vpcURL .= '&' . urlencode($key) . "=" . urlencode($value);
+                    $vpcURL .= '&' . urlencode($key)."=".urlencode($value);
                 }
                 $md5HashData .= $value;
             }
         }
 
         if (strlen($SECURE_SECRET) > 0) {
-            $vpcURL .= "&vpc_SecureHash=" . strtoupper(md5($md5HashData));
+            $vpcURL .= "&vpc_SecureHash=".strtoupper(md5($md5HashData));
         }
 
         $obj = new \stdClass();

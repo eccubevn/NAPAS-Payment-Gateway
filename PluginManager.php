@@ -2,7 +2,7 @@
 
 namespace Plugin\Napas;
 
-use Plugin\Napas\Service\Payment\Method\NapasGateway;
+use Plugin\Napas\Service\Payment\NapasGateway;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Eccube\Plugin\AbstractPluginManager;
 use Eccube\Repository\PaymentRepository;
@@ -10,8 +10,6 @@ use Eccube\Repository\DeliveryRepository;
 use Eccube\Repository\PaymentOptionRepository;
 use Eccube\Entity\PaymentOption;
 use Eccube\Entity\Payment;
-use Plugin\Napas\Service\Payment\Method\LinkCreditCard;
-use Plugin\Napas\Service\Payment\Method\LinkDomesticCard;
 use Plugin\Napas\Entity\Config;
 use Plugin\Napas\Repository\ConfigRepository;
 
@@ -95,7 +93,7 @@ class PluginManager extends AbstractPluginManager
             $Payment->setCharge(0);
             $Payment->setSortNo($sortNo);
             $Payment->setVisible(false);
-            $Payment->setMethod('Napas - Thanh toán bằng thẻ quốc tế');
+            $Payment->setMethod('Napas - Cổng thanh toán trực tuyến bằng thẻ quốc tế và nội địa');
             $Payment->setMethodClass(NapasGateway::class);
         }
         $entityManager->persist($Payment);
